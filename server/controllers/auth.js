@@ -8,7 +8,7 @@ dotenv.config();
 // Register User function
 const register = async (req, res) => {
     try {
-        const { firstName, lastName, email, password } = req.body;
+        const { firstName, lastName, email, password , phone , age, profession , gender} = req.body;
         const existingUser = await UserModel.findOne({ email: email })
 
         if (existingUser) {
@@ -25,6 +25,10 @@ const register = async (req, res) => {
                 lastName,
                 email,
                 password: passwordHash,
+                phone ,
+                age ,
+                profession ,
+                gender ,
             })            
 
             const savedUser = await newUser.save();
