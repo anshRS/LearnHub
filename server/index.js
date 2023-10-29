@@ -12,13 +12,11 @@ dotenv.config();
 app.use(bodyParser.json({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
-app.use('/',router);
 
 const PORT = process.env.PORT || '8000';
 const MONGO_URL = process.env.MONGO_URL
 
 app.use('api/auth' , router);
-
 app.listen(PORT, () => {
 	console.log(`Server listening at http://localhost:${PORT}`);
 })
