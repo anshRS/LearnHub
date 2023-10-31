@@ -54,7 +54,7 @@ const LoginForm = () => {
             dispatch(logIn({
                 isLoggedIn: true,
                 token: response.data.token
-            }))
+            }))             
         } catch (error) {            
             toast.error(error.message, {
                 position:"top-center",
@@ -79,6 +79,7 @@ const LoginForm = () => {
                     {...register("email")}
                     className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
                     placeholder="Your email"
+                    autoComplete="email"
                 />
                 <p className='text-red-600'>{errors.email?.message}</p>
             </div>
@@ -92,6 +93,7 @@ const LoginForm = () => {
                     {...register("password")}
                     className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
                     placeholder="Your password"
+                    autoComplete="off"
                 />
                 <p className='text-red-600'>{errors.password?.message}</p>
             </div>

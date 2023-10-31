@@ -88,6 +88,7 @@ const SignUpForm = () => {
                         id="firstName"
                         {...register("firstName")}
                         className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+                        autoComplete="name"
                     />
                     <p className='text-red-600'>{errors.firstName?.message}</p>
                 </div>
@@ -100,6 +101,7 @@ const SignUpForm = () => {
                         id="lastName"
                         {...register("lastName")}
                         className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+                        autoComplete="name"
                     />
                     <p className='text-red-600'>{errors.lastName?.message}</p>
                 </div>
@@ -112,6 +114,7 @@ const SignUpForm = () => {
                         id="email"
                         {...register("email")}
                         className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+                        autoComplete="email"
                     />
                     <p className='text-red-600'>{errors.email?.message}</p>
                 </div>
@@ -124,6 +127,7 @@ const SignUpForm = () => {
                         id="password"
                         {...register("password")}
                         className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+                        autoComplete="off"
                     />
                     <p className='text-red-600'>{errors.password?.message}</p>
                 </div>
@@ -136,6 +140,7 @@ const SignUpForm = () => {
                         id="phone"
                         {...register("phone")}
                         className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+                        autoComplete="tel"
                     />
                     <p className='text-red-600'>{errors.phone?.message}</p>
                 </div>
@@ -148,6 +153,7 @@ const SignUpForm = () => {
                         id="age"
                         {...register("age")}
                         className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+                        autoComplete="off"
                     />
                     <p className='text-red-600'>{errors.age?.message}</p>
                 </div>
@@ -160,6 +166,7 @@ const SignUpForm = () => {
                         id="profession"
                         {...register("profession")}
                         className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+                        autoComplete="on"
                     />
                     <p className='text-red-600'>{errors.profession?.message}</p>
                 </div>
