@@ -17,7 +17,7 @@ app.use(cors());
 const PORT = process.env.PORT || '8000';
 const MONGO_URL = process.env.MONGO_URL
 
-app.use('api/auth' , Authrouter);
+app.use('/api/auth' , Authrouter);
 
 app.use("api/blog" , Blogrouter);
 
