@@ -1,6 +1,5 @@
 // import jwtDecode from 'jwt-decode'
-// import {Blog} from "../models/blogs";
-
+import  BlogModel from "../models/blog.js";
 const searchBlogs = async (req, res)=>{
     try {
         const {text , field} = req.body ;
@@ -9,8 +8,8 @@ const searchBlogs = async (req, res)=>{
         text = text.toLowerCase();
         const title_query = {title : text}
         const field_query = {field : field}
-        const title_blogs = Blog.find(title_query).toArray();
-        const field_blogs = Blog.find(field_query).toArray();
+        const title_blogs = BlogModel.find(title_query).toArray();
+        const field_blogs = BlogModel.find(field_query).toArray();
         if(!title_blogs){
             if(field_blogs){
                 res.status(201).json({message:"Not blogs with given title" , blogs : field_blogs})
@@ -28,9 +27,12 @@ const searchBlogs = async (req, res)=>{
 
 const postBlogs = async (req ,res)=>{
     try{
-        const {} = req.body ;
-        const newBlog = new Blog({
-
+        const {title , content , author , imageUrl} = req.body ;
+        const newBlog = new BlogModel({
+            title ,
+            content ,
+            author , 
+            imageUrl,
         });
         await newBlog.save();
         res.status(200).json({message : "Successfully Saved !!"});
@@ -44,7 +46,7 @@ const postBlogs = async (req ,res)=>{
 const getBlogs = async (req , res)=>{
     try{
         const {_id} = req.body ;
-        const blog = Blog.findOne({_id});
+        const blog = BlogModel.findOne({_id});
         if(!blog){
             res.status(400).json({message : "Blog can't be found"});
         }
