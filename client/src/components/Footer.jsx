@@ -1,5 +1,6 @@
 "use client"
 import { Books, Globe, House, Phone } from '@phosphor-icons/react';
+import Link from 'next/link';
 import React from 'react';
 
 export default function App() {
@@ -26,20 +27,20 @@ export default function App() {
                             Programs
                         </h6>
                         <p className="mb-4">
-                            <a className="text-neutral-600 dark:text-neutral-200"
-                            >Engineering</a>
+                            <Link href="/" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
+                            >Engineering</Link>
                         </p>
                         <p className="mb-4">
-                            <a className="text-neutral-600 dark:text-neutral-200"
-                            >Medical</a>
+                            <Link href="/" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
+                            >Medical</Link>
                         </p>
                         <p className="mb-4">
-                            <a className="text-neutral-600 dark:text-neutral-200"
-                            >Technology</a>
+                            <Link href="/" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
+                            >Technology</Link>
                         </p>
                         <p>
-                            <a className="text-neutral-600 dark:text-neutral-200"
-                            >Marketing</a>
+                            <Link href="/" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
+                            >Marketing</Link>
                         </p>
                     </div>
 
@@ -49,16 +50,16 @@ export default function App() {
                             Useful links
                         </h6>
                         <p className="mb-4">
-                            <a className="text-neutral-600 dark:text-neutral-200"
-                            >Blogs</a>
+                            <Link href="/blogs" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
+                            >Blogs</Link>
                         </p>
-                        <p className="mb-4">
+                        {/* <p className="mb-4">
                             <a className="text-neutral-600 dark:text-neutral-200"
                             >Resources</a>
-                        </p>
+                        </p> */}
                         <p className="mb-4">
-                            <a className="text-neutral-600 dark:text-neutral-200"
-                            >About Us</a>
+                            <Link href="/about" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
+                            >About Us</Link>
                         </p>
                     </div>
 
