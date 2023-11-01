@@ -16,7 +16,7 @@ const schema = Yup.object().shape({
             content: Yup.string().required('Content is required'),
         })
     ),
-    image: Yup.mixed().required('Image is required')
+    imageUrl: Yup.mixed().required('Image is required')
 });
 
 const CreateBlogForm = () => {
@@ -29,13 +29,13 @@ const CreateBlogForm = () => {
             title: '',
             subtitle: '',
             descriptions: [{ heading: '', content: '' }],
-            image: null,
+            imageUrl: null,
             discipline: '',
         },
     });
 
     const onSubmit = async (data) => {
-        data.image = data.image[0]
+        data.imageUrl = data.imageUrl[0]
         data.author = user_id
         console.log(data)
 
@@ -119,7 +119,7 @@ const CreateBlogForm = () => {
                         {...register("discipline")}
                         className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
                     >
-                        <option value="">Select Gender</option>
+                        <option value="">Select Discipline</option>
                         <option value="engineering">Engineering</option>
                         <option value="medical">Medical</option>
                         <option value="development">Development</option>
@@ -176,7 +176,7 @@ const CreateBlogForm = () => {
                 </div>
                 <div>
                     <label htmlFor="image" className='block text-2xl py-2'>Upload Image</label>
-                    <input type="file" {...register('image')} />
+                    <input type="file" {...register('imageUrl')} />
                     <p className='text-red-600'>{formState.errors.image?.message}</p>
                 </div>
                 <button
