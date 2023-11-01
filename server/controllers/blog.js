@@ -79,4 +79,16 @@ export const getAllBlogs = async (req , res)=>{
     }
 }
 
+export const getBlogsByCategory = async (req,res) => {
+    try{
+        const blogCategory = req.params.category;
+        const blogs = await BlogModel.find({category: blogCategory});
+        res.status(200).json({
+            msg:"Blogs fetched successfully",
+            blogs
+        })
+    }catch(err){
+        res.status(500).json({error:err})
+    }
+}
 
