@@ -3,17 +3,17 @@ import  BlogModel from "../models/blog.js";
 
 export const searchBlogs = async (req, res)=>{
     try {
-        const {text , field} = req.body ;
+        const {title , category} = req.body ;
         //  Search Logic
 
-        text = text.toLowerCase();
-        const title_query = {title : text}
-        const field_query = {field : field}
+        title = title.toLowerCase();
+        const title_query = {title : title}
+        const field_query = {category : category}
         const title_blogs = BlogModel.find(title_query).toArray();
         const field_blogs = BlogModel.find(field_query).toArray();
         if(!title_blogs){
             if(field_blogs){
-                res.status(201).json({message:"Not blogs with given title" , blogs : field_blogs})
+                res.status(201).json({message:"No blogs with given title" , blogs : field_blogs})
             }
             else{
                 return res.status(200).json({mesage : "Not Found"});
