@@ -1,6 +1,7 @@
-// import jwtDecode from 'jwt-decode'
 import  BlogModel from "../models/blog.js";
-const searchBlogs = async (req, res)=>{
+
+
+export const searchBlogs = async (req, res)=>{
     try {
         const {text , field} = req.body ;
         //  Search Logic
@@ -25,14 +26,20 @@ const searchBlogs = async (req, res)=>{
 
 };
 
-const postBlogs = async (req ,res)=>{
+export const postBlog = async (req ,res,next)=>{
     try{
-        const {title , content , author , imageUrl} = req.body ;
+        const {title , content , author, category} = req.body ;
+        const image = req.file;
+        console.log({title , content , author, category,image})
+        if(!title || !content || !author || !category || !image){
+            return res.status(400).send({msg:"Please provide all fields"})
+        }
         const newBlog = new BlogModel({
             title ,
             content ,
             author , 
-            imageUrl,
+            category,
+            imageUrl: image.filename,
         });
         await newBlog.save();
         res.status(200).json({message : "Successfully Saved !!"});
@@ -40,17 +47,31 @@ const postBlogs = async (req ,res)=>{
     catch (err) {
         res.status(500).json({ error: err.message })
     }
-
 };
 
-const getBlogs = async (req , res)=>{
+export const getBlog = async (req , res)=>{
     try{
-        const {_id} = req.body ;
-        const blog = BlogModel.findOne({_id});
+        const blogid =  req.params.id;
+
+        const blog =await BlogModel.findById(blogid);
         if(!blog){
-            res.status(400).json({message : "Blog can't be found"});
+            res.status(400).json({message : "Blog not found"});
         }
         res.status(200).json({blog})
+    }
+    catch(error){
+        res.status(500).json({error : err.message})
+    }
+}
+
+export const getAllBlogs = async (req , res)=>{
+    try{
+        const blogs = await BlogModel.find();        
+
+        res.status(200).json({
+            msg:"Blogs fetched successfully",
+            blogs
+        })
 
     }
     catch(error){
@@ -58,4 +79,4 @@ const getBlogs = async (req , res)=>{
     }
 }
 
-export { searchBlogs  , postBlogs , getBlogs}
+
