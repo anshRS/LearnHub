@@ -2,10 +2,14 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import axios from '@/utils/axios';
 
 const schema = Yup.object().shape({
     title: Yup.string().required('Title is required'),
     subtitle: Yup.string().required('Subtitle is required'),
+    discipline: Yup.string().required('Discipline is required'),
     descriptions: Yup.array().of(
         Yup.object().shape({
             heading: Yup.string().required('Heading is required'),
@@ -16,19 +20,52 @@ const schema = Yup.object().shape({
 });
 
 const CreateBlogForm = () => {
-    const { control, register, handleSubmit, setError, formState, getValues, setValue } = useForm({
+    const { token, user_id } = useSelector((state) => state.auth);
+
+
+    const { control, register, reset, handleSubmit, setError, formState, getValues, setValue } = useForm({
         resolver: yupResolver(schema),
         defaultValues: {
             title: '',
             subtitle: '',
             descriptions: [{ heading: '', content: '' }],
             image: null,
+            discipline: '',
         },
     });
 
-    const onSubmit = (data) => {        
-        data.image = data.image[0]  
-        console.log(data)      
+    const onSubmit = async (data) => {
+        data.image = data.image[0]
+        data.author = user_id
+        console.log(data)
+
+        try {
+
+            const response = await axios.post("/api/blog/blog-post", {
+                ...data,
+            }, {
+                headers: {   
+                    "Content-Type": "multipart/form-data",                 
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+
+            console.log(response)
+
+            toast.success(response.data.message, {
+                position: "top-center",
+            });
+
+        } catch (error) {
+            toast.error(error.msg, {
+                position: "top-center",
+            })
+            reset();
+            setError("afterSubmit", {
+                ...error,
+                message: error.message,
+            });
+        }
     };
 
     const addDescription = () => {
@@ -47,7 +84,7 @@ const CreateBlogForm = () => {
     return (
         <div className="w-full p-4 mt-32 px-60 mb-32 font-raleway">
             <h1 className="text-5xl  text-center mb-4">Create Blog</h1>
-            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                 <div>
                     <label htmlFor="title" className="block text-2xl">
                         Title
@@ -73,6 +110,24 @@ const CreateBlogForm = () => {
                         placeholder="Enter subtitle"
                     />
                     <p className='text-red-600'>{formState.errors.subtitle?.message}</p>
+                </div>
+                <div>
+                    <label htmlFor="gender" className="block text-2xl font-medium text-gray-600">
+                        Discipline
+                    </label>
+                    <select                        
+                        {...register("discipline")}
+                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+                    >
+                        <option value="">Select Gender</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="medical">Medical</option>
+                        <option value="development">Development</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="science">Science</option>
+                        <option value="designer">Designer</option>
+                    </select>
+                    <p className='text-red-600'>{formState.errors.discipline?.message}</p>
                 </div>
                 <div>
                     <p className="block mb-2 text-2xl">Descriptions</p>
