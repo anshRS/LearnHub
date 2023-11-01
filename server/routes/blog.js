@@ -1,11 +1,14 @@
 import express from "express";
 import { protect } from "../middlewares/auth.js";
-import {searchBlogs , postBlogs, getBlogs} from "../controllers/blog.js"
+import {searchBlogs , postBlog, getAllBlogs, getBlog} from "../controllers/blog.js"
+import {upload} from "../middlewares/upload.js"
+
 const Blogrouter = express.Router();
 
 // BlogRoutes
-Blogrouter.post("/blog-search" , protect , searchBlogs)
-Blogrouter.post("/blog-post" , protect , postBlogs)
-Blogrouter.get("/blog-get" , protect , getBlogs)
+Blogrouter.post("/blog-post",protect,upload.single("imageUrl"), postBlog);
+Blogrouter.get("/", getAllBlogs);
+Blogrouter.get("/:id" , getBlog);
+Blogrouter.post("/blog-search" , searchBlogs);
 
-export {Blogrouter}
+export {Blogrouter};
