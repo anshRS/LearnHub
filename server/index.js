@@ -17,9 +17,9 @@ app.use(cors());
 const PORT = process.env.PORT || '8000';
 const MONGO_URL = process.env.MONGO_URL
 
+// routes
 app.use('/api/auth' , Authrouter);
-
-app.use("api/blog" , Blogrouter);
+app.use("/api/blog" , Blogrouter);
 
 app.listen(PORT, () => {
 	console.log(`Server listening at http://localhost:${PORT}`);
