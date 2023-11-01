@@ -187,4 +187,113 @@ const BlogData = [
     }
 ]
 
-export { Fields, BlogData };
+const CourseData = [
+    {
+        discipline: "Engineering",
+        name: "Mechanical Engineering Fundamentals",
+        metadata: {
+            professor: "Dr. John Smith"
+        }
+    },
+    {
+        discipline: "Engineering",
+        name: "Civil Engineering Principles",
+        metadata: {
+            professor: "Dr. Sarah Johnson"
+        }
+    },
+    {
+        discipline: "Engineering",
+        name: "Electrical Circuit Analysis",
+        metadata: {
+            professor: "Dr. Michael Brown"
+        }
+    },
+    {
+        discipline: "Engineering",
+        name: "Aerospace Vehicle Design",
+        metadata: {
+            professor: "Dr. Emily Davis"
+        }
+    },
+    {
+        discipline: "Engineering",
+        name: "Chemical Process Engineering",
+        metadata: {
+            professor: "Dr. David Wilson"
+        }
+    },
+    {
+        discipline: "Technology",
+        name: "Software Development in Java",
+        metadata: {
+            professor: "Prof. Lisa Roberts"
+        }
+    },
+    {
+        discipline: "Technology",
+        name: "Cybersecurity Essentials",
+        metadata: {
+            professor: "Prof. Mark Turner"
+        }
+    },
+    {
+        discipline: "Technology",
+        name: "Data Science and Machine Learning",
+        metadata: {
+            professor: "Prof. Rachel Adams"
+        }
+    },
+    {
+        discipline: "Technology",
+        name: "Web Development with HTML/CSS",
+        metadata: {
+            professor: "Prof. Kevin Lee"
+        }
+    },
+    {
+        discipline: "Technology",
+        name: "Introduction to Artificial Intelligence",
+        metadata: {
+            professor: "Prof. Alex Johnson"
+        }
+    },
+    {
+        discipline: "Medical",
+        name: "Cardiovascular Physiology",
+        metadata: {
+            professor: "Dr. Laura Miller"
+        }
+    },
+    {
+        discipline: "Medical",
+        name: "Pediatric Medicine",
+        metadata: {
+            professor: "Dr. Michael Anderson"
+        }
+    },
+    {
+        discipline: "Medical",
+        name: "Orthopedic Surgery Techniques",
+        metadata: {
+            professor: "Dr. Emily White"
+        }
+    },
+    {
+        discipline: "Medical",
+        name: "Dermatology Diagnosis and Treatment",
+        metadata: {
+            professor: "Dr. Susan Carter"
+        }
+    },
+    {
+        discipline: "Medical",
+        name: "Neurology and Brain Imaging",
+        metadata: {
+            professor: "Dr. James Davis"
+        }
+    }  
+];
+
+
+export { Fields, BlogData, CourseData };
