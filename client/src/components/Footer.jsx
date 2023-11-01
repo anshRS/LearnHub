@@ -27,21 +27,17 @@ export default function App() {
                             Programs
                         </h6>
                         <p className="mb-4">
-                            <Link href="/" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
+                            <Link href="/programs/engineering" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
                             >Engineering</Link>
                         </p>
                         <p className="mb-4">
-                            <Link href="/" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
+                            <Link href="/programs/medical" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
                             >Medical</Link>
                         </p>
                         <p className="mb-4">
-                            <Link href="/" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
+                            <Link href="/programs/technology" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
                             >Technology</Link>
-                        </p>
-                        <p>
-                            <Link href="/" className="text-neutral-600 dark:text-neutral-200 hover:text-blue-500"
-                            >Marketing</Link>
-                        </p>
+                        </p>                        
                     </div>
 
                     <div className="">
