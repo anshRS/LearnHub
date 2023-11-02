@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import {Authrouter} from './routes/auth.js';
 import {Blogrouter} from './routes/blog.js';
 import ConnectDB from './database/db.js';
+import path from 'path'
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use(cors());
 
 const PORT = process.env.PORT || '8000';
 const MONGO_URL = process.env.MONGO_URL
+
+app.use(express.static(path.join(process.cwd(), "uploads")));
 
 // routes
 app.use('/api/auth' , Authrouter);
