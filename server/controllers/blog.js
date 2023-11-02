@@ -56,9 +56,13 @@ export const postBlog = async (req, res) => {
 
 export const getBlog = async (req, res) => {
     try {
-        const blogid = req.params.id;
+        const blogid = req.params.id;        
 
-        const blog = await BlogModel.findById(blogid);
+        const blog = await BlogModel.findById(blogid)
+            .populate({
+                path: 'author',
+                select: '-password',
+            });console.log(blog)
         if (!blog) {
             res.status(400).json({ message: "Blog not found" });
         }
@@ -66,12 +70,16 @@ export const getBlog = async (req, res) => {
     }
     catch (error) {
         res.status(500).json({ error: err.message })
-    }
+    }        
 }
 
 export const getAllBlogs = async (req, res) => {
     try {
-        const blogs = await BlogModel.find();
+        const blogs = await BlogModel.find()
+            .populate({
+                path: 'author',
+                select: '-password',
+            });
 
         res.status(200).json({
             msg: "Blogs fetched successfully",
@@ -80,7 +88,7 @@ export const getAllBlogs = async (req, res) => {
 
     }
     catch (error) {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: error.message })
     }
 }
 
