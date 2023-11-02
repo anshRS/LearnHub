@@ -5,7 +5,8 @@ LearnHub is an educational platform developed during the `Hack It Out` hackathon
 
 1. [Introduction](#introduction)
 2. [Features](#features)
-3. [Technologies Used](#technologies-used)
+3. [Demo](#demo)
+4. [Technologies Used](#technologies-used)
 
 ## Introduction
 LearnHub is a one-stop platform for students looking to enhance their knowledge and skills. It provides the following key features:
@@ -23,6 +24,9 @@ LearnHub is a one-stop platform for students looking to enhance their knowledge 
 - **User Dashboard**: A personalized dashboard for each user, showing their progress, recent activity, and recommended content.
 
 - **Error Handling**: Comprehensive error handling ensures a smooth user experience and easy debugging.
+
+## Demo
+For a live demo of LearnHub, visit [Demo Link](https://www.canva.com/design/DAFzCeEE0QA/VgD1I3SKJUVAab2HS_SN8w/watch?utm_content=DAFzCeEE0QA&utm_campaign=designshare&utm_medium=link&utm_source=editor).
 
 ## Technologies Used
 
