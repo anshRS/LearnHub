@@ -189,111 +189,167 @@ const BlogData = [
 
 const CourseData = [
     {
-        discipline: "Engineering",
-        name: "Mechanical Engineering Fundamentals",
-        metadata: {
-            professor: "Dr. John Smith"
-        }
-    },
-    {
-        discipline: "Engineering",
-        name: "Civil Engineering Principles",
-        metadata: {
-            professor: "Dr. Sarah Johnson"
-        }
-    },
-    {
+        id: "1",
         discipline: "Engineering",
         name: "Electrical Circuit Analysis",
+        chapters: [
+            {
+                id: "1",
+                title: 'Chapter 1',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+            {
+                id: "2",
+                title: 'Chapter 2',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+        ],
+        metadata: {
+            professor: "Dr. Michael Brown"
+        }
+    },
+
+    {
+        id: '2',
+        discipline: "Engineering",
+        name: "Mechanical Engineering Fundamentals",
+        chapters: [
+            {
+                id: "1",
+                title: 'Chapter 1',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+            {
+                id: "2",
+                title: 'Chapter 2',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+        ],
+        metadata: {
+            professor: "Dr. James Davis"
+        }
+    },
+    
+    {
+        id: '3',
+        discipline: "Technology",
+        name: "Data Science and Machine Learning",
+        chapters: [
+            {
+                id: "1",
+                title: 'Chapter 1',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+            {
+                id: "2",
+                title: 'Chapter 2',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+        ],
         metadata: {
             professor: "Dr. Michael Brown"
         }
     },
     {
-        discipline: "Engineering",
-        name: "Aerospace Vehicle Design",
-        metadata: {
-            professor: "Dr. Emily Davis"
-        }
-    },
-    {
-        discipline: "Engineering",
-        name: "Chemical Process Engineering",
-        metadata: {
-            professor: "Dr. David Wilson"
-        }
-    },
-    {
-        discipline: "Technology",
-        name: "Software Development in Java",
-        metadata: {
-            professor: "Prof. Lisa Roberts"
-        }
-    },
-    {
-        discipline: "Technology",
-        name: "Cybersecurity Essentials",
-        metadata: {
-            professor: "Prof. Mark Turner"
-        }
-    },
-    {
-        discipline: "Technology",
-        name: "Data Science and Machine Learning",
-        metadata: {
-            professor: "Prof. Rachel Adams"
-        }
-    },
-    {
+        id: '4',
         discipline: "Technology",
         name: "Web Development with HTML/CSS",
+        chapters: [
+            {
+                id: "1",
+                title: 'Chapter 1',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+            {
+                id: "2",
+                title: 'Chapter 2',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+        ],
         metadata: {
             professor: "Prof. Kevin Lee"
         }
     },
     {
-        discipline: "Technology",
-        name: "Introduction to Artificial Intelligence",
-        metadata: {
-            professor: "Prof. Alex Johnson"
-        }
-    },
-    {
+        id: '5',
         discipline: "Medical",
         name: "Cardiovascular Physiology",
+        chapters: [
+            {
+                id: "1",
+                title: 'Chapter 1',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+            {
+                id: "2",
+                title: 'Chapter 2',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+        ],
         metadata: {
             professor: "Dr. Laura Miller"
         }
     },
+
     {
-        discipline: "Medical",
-        name: "Pediatric Medicine",
-        metadata: {
-            professor: "Dr. Michael Anderson"
-        }
-    },
-    {
+        id: '6',
         discipline: "Medical",
         name: "Orthopedic Surgery Techniques",
+        chapters: [
+            {
+                id: "1",
+                title: 'Chapter 1',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+            {
+                id: "2",
+                title: 'Chapter 2',
+                subTopics: [
+                    { id: 11, title: 'Sub-topic 1', videoUrl: 'https://www.youtube.com/embed/4emxjxonNRI' },
+                    { id: 12, title: 'Sub-topic 2', videoUrl: 'https://www.youtube.com/embed/6XrL5jXmTwM' },
+                ],
+            },
+        ],
         metadata: {
             professor: "Dr. Emily White"
         }
     },
-    {
-        discipline: "Medical",
-        name: "Dermatology Diagnosis and Treatment",
-        metadata: {
-            professor: "Dr. Susan Carter"
-        }
-    },
-    {
-        discipline: "Medical",
-        name: "Neurology and Brain Imaging",
-        metadata: {
-            professor: "Dr. James Davis"
-        }
-    }  
-];
+
+
+]
 
 
 export { Fields, BlogData, CourseData };
