@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { Article, Books, Buildings, House, Video , User } from "@phosphor-icons/react";
+import { Article, Books, Buildings, House, Video, User } from "@phosphor-icons/react";
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from '@/redux/slices/auth';
@@ -58,7 +58,7 @@ const Navbar = () => {
                                     href="/">Home</Link>
                             </li>
                         )
-                    }                    
+                    }
 
                     <li className="relative group flex gap-2 justify-center items-center">
                         <Video size={20} />
@@ -112,7 +112,7 @@ const Navbar = () => {
                                     href="/blogs">Blogs</Link>
                             </li>
                         )
-                    }     
+                    }
 
                     {
                         currentRoute === '/about' ? (
@@ -129,26 +129,15 @@ const Navbar = () => {
                             </li>
                         )
                     }
-                    {
-                        currentRoute === '/dashboard' ? (
-                            <li className="flex gap-2 justify-center items-center bg-blue-500 text-white rounded-md p-2 hover:text-gray-100">
-                                <User size={20} />
-                                <Link className="text-sm"
-                                    href="/dashboard">Dashborad</Link>
-                            </li>
-                        ) : (
-                            <li className="flex gap-2 justify-center items-center">
-                                <User size={20} />
-                                <Link className="text-sm text-gray-400 hover:text-gray-500"
-                                    href="/dashboard">Dashboard</Link>
-                            </li>
-                        )
-                    }  
-                    
+
                 </ul>
                 {
                     isLoggedIn && (
                         <>
+
+
+                            <Link className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="/dashboard">Dashborad</Link>
+
                             <button className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" onClick={() => {
                                 logout();
                             }}>Logout</button>
