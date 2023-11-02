@@ -27,8 +27,7 @@ export const searchBlogs = async (req, res) => {
 };
 
 export const postBlog = async (req, res) => {
-    console.log(req.body)
-    console.log(req.file)
+    
     try {
         const { title, subtitle, descriptions, author, discipline } = req.body;
         const image = req.file;
@@ -62,7 +61,7 @@ export const getBlog = async (req, res) => {
             .populate({
                 path: 'author',
                 select: '-password',
-            });console.log(blog)
+            })
         if (!blog) {
             res.status(400).json({ message: "Blog not found" });
         }
