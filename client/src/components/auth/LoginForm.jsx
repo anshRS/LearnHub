@@ -53,7 +53,8 @@ const LoginForm = () => {
 
             dispatch(logIn({
                 isLoggedIn: true,
-                token: response.data.token
+                token: response.data.token,
+                user_id: response.data.user_id               
             }))             
         } catch (error) {            
             toast.error(error.message, {

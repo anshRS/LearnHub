@@ -1,16 +1,26 @@
 "use client"
 
 import BlogCard from '@/components/blog/BlogCard'
-import { BlogData } from '@/data'
+import axios from '@/utils/axios'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 
 const BlogPage = () => {
     const router = useRouter();
     const { isLoggedIn } = useSelector((state) => state.auth);
+    const [blogs, setBlogs] = useState([])
+
+    useEffect(() => {
+        const getAllBlogs = async () => {
+            const res = await axios.get("/api/blog")
+            setBlogs(res.data.blogs)
+        }
+        getAllBlogs()
+    }, [])
+
 
     return (
         <div className='mt-14 flex flex-col items-center w-full font-raleway'>
@@ -32,10 +42,10 @@ const BlogPage = () => {
 
             <div className="w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-24">
 
-                {BlogData.map((blog) => (
-                    <Link key={blog.id} href={`/blogs/${blog.id}`}>
-                        <BlogCard
-                            image={blog.image}
+                {blogs && blogs.map((blog) => (
+                    <Link key={blog._id} href={`/blogs/${blog._id}`}>
+                        <BlogCard                            
+                            image={blog.imageUrl}
                             title={blog.title}
                             subtitle={blog.subtitle}
                             author={blog.author}
