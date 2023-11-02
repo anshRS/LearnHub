@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import {Authrouter} from './routes/auth.js';
 import {Blogrouter} from './routes/blog.js';
 import ConnectDB from './database/db.js';
-
+import {ProfileRouter} from "./routes/dashboard.js"
 const app = express();
 
 dotenv.config();
@@ -20,6 +20,7 @@ const MONGO_URL = process.env.MONGO_URL
 // routes
 app.use('/api/auth' , Authrouter);
 app.use("/api/blog" , Blogrouter);
+app.use("/api/dashboard"  , ProfileRouter);
 
 app.listen(PORT, () => {
 	console.log(`Server listening at http://localhost:${PORT}`);
