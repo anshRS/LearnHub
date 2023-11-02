@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { Article, Books, Buildings, House, Video } from "@phosphor-icons/react";
+import { Article, Books, Buildings, House, Video , User } from "@phosphor-icons/react";
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from '@/redux/slices/auth';
@@ -128,7 +128,22 @@ const Navbar = () => {
                                     href="/about">About</Link>
                             </li>
                         )
-                    } 
+                    }
+                    {
+                        currentRoute === '/dashboard' ? (
+                            <li className="flex gap-2 justify-center items-center bg-blue-500 text-white rounded-md p-2 hover:text-gray-100">
+                                <User size={20} />
+                                <Link className="text-sm"
+                                    href="/dashboard">Dashborad</Link>
+                            </li>
+                        ) : (
+                            <li className="flex gap-2 justify-center items-center">
+                                <User size={20} />
+                                <Link className="text-sm text-gray-400 hover:text-gray-500"
+                                    href="/dashboard">Dashboard</Link>
+                            </li>
+                        )
+                    }  
                     
                 </ul>
                 {
